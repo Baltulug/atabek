@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.myapplication.MainFragment"
+        android:label="mainFragment"
+        tools:layout="@layout/main_fragment">
+        <action
+            android:id="@+id/action_mainFragment_to_songsFragment"
+            app:destination="@id/songsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectedFragment"
+        android:name="com.example.myapplication.SelectedFragment"
+        android:label="secondFragment"
+        tools:layout="@layout/selected_fragment"/>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.myapplication.SettingsFragment"
+        android:label="settingsFragment"
+        tools:layout="@layout/settings_fragment"/>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.myapplication.SearchFragment"
+        android:label="searchFragment"
+        tools:layout="@layout/search_fragment"/>
+    <fragment
+        android:id="@+id/songsFragment"
+        android:name="com.example.myapplication.SongsFragment"
+        android:label="songsFragment"
+        tools:layout="@layout/songs_fragment">
+        <argument android:name="singerName"
+            app:argType="string" />
+        <argument
+            android:name="singerId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_songsFragment_to_lyricSongFragment"
+            app:destination="@id/lyricSongFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lyricSongFragment"
+        android:name="com.example.myapplication.LyricSongFragment"
+        android:label="LyricSongFragment"
+        tools:layout="@layout/lyric_fragment">
+        <argument
+            android:name="songName"
+            app:argType="string" />
+        <argument android:name="songText"
+            app:argType="string" />
+    </fragment>
+</navigation>
